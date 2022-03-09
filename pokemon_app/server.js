@@ -1,4 +1,4 @@
-require('dotenv').config({path: '.env'})
+require('dotenv').config()
 // Import the express library here
 const express = require('express')
 const Pokemon = require('./models/pokemon.js')
@@ -35,7 +35,7 @@ app.set('view engine', 'jsx');
 
 
 app.get('/pokemon', (req, res)=>{
-    Pokemon.find({}, (error, allPokemon)=> {
+    Pokemon.find({}, (err, allPokemon)=> {
     res.render('Index', {pokemon: allPokemon})})
     
 })
@@ -51,9 +51,12 @@ app.get('/pokemon/:id', (req, res)=>{
 })
 
 app.post('/pokemon', (req,res)=>{
-    Pokemon.create(req.body, (error, createPokemon)=>{
+    Pokemon.create(req.body, (err, createdPokemon)=>{
        res.redirect('/pokemon')//send user back to index page
+       
 })
+// console.log(Pokemon)
+// console.log(req.body)
 })
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });

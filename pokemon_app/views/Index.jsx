@@ -19,7 +19,7 @@ class Index extends React.Component {
                         return (
                             <li>
                             <a href={`/pokemon/${poke.id}`}>
-                                (pokename)
+                                {poke.name}
                             </a>
                             </li>
                         );

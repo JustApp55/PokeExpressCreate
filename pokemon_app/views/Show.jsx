@@ -7,7 +7,7 @@ class Show extends React.Component {
           color: '#ffffff',
           textTransform: 'capitalize'
       };
-
+      return (
     <html lang="en">
       <head>
        <meta charset="UTF-8" />
@@ -16,19 +16,19 @@ class Show extends React.Component {
        <title>Pokèmon</title>
       </head>
       <body style={{backgroundColor: '#eaf4f4'}}>
-      return (
+     
+          <h1>Gotta Catch 'Em All!</h1>
           <div style={style}>
-              <h1>Gotta Catch 'Em All!</h1>
               <h2> {pokemon.name} </h2>
               <img src={pokemon.img + '.jpg'}></img>
               <br></br>
               <br></br>
               <a href='/pokemon'>Back To PokèDex</a>
           </div>
-      );
+      
       </body>
     </html>
-  }
+      )}
 };
 
 module.exports = Show;
