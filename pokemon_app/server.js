@@ -19,9 +19,6 @@ app.use(express.urlencoded({extended:true}));
 app.set('view engine', 'jsx');
   app.engine('jsx', require('express-react-views').createEngine());
 
-  app.get('/', (req,res)=>{
-    res.render('Welcome to Pokemon App')
-})
 
   app.get('/pokemon/seed', (req, res)=>{
     Pokemon.create([
@@ -37,7 +34,9 @@ app.set('view engine', 'jsx');
     })
 });
 
-
+// app.get('/', (req,res)=>{
+//     res.render('Welcome to Pokemon App')
+// })
 
 app.get('/pokemon', (req, res)=>{
     Pokemon.find({}, (err, allPokemon)=> {
