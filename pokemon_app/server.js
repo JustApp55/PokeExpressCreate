@@ -4,7 +4,7 @@ const express = require('express')
 const Pokemon = require('./models/pokemon.js')
 // Instantiate the app here
 const app = express()
-const port=3000
+const PORT = process.env.PORT || 3000
 const mongoose = require('mongoose')
 
 
@@ -65,6 +65,6 @@ mongoose.connection.once('open', ()=> {
 })
 
 // Invoke the app's `.listen()` method 
-app.listen(port,() => {
-    console.log('listening on port' , port);
+app.listen(PORT,() => {
+    console.log('listening on port' , PORT);
 });
