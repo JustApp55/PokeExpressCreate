@@ -19,6 +19,10 @@ app.use(express.urlencoded({extended:true}));
 app.set('view engine', 'jsx');
   app.engine('jsx', require('express-react-views').createEngine());
 
+  app.get('/', (req,res)=>{
+    res.render('Welcome to Pokemon App')
+})
+
   app.get('/pokemon/seed', (req, res)=>{
     Pokemon.create([
         {name: "bulbasaur", img: "http://img.pokemondb.net/artwork/bulbasaur"},
@@ -32,6 +36,7 @@ app.set('view engine', 'jsx');
         res.redirect('/pokemon');
     })
 });
+
 
 
 app.get('/pokemon', (req, res)=>{
