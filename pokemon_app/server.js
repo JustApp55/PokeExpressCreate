@@ -2,6 +2,7 @@ require('dotenv').config()
 // Import the express library here
 const express = require('express')
 const Pokemon = require('./models/pokemon.js')
+const methodOverride = require('method-override')
 // Instantiate the app here
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -14,6 +15,7 @@ app.use((req, res, next) =>{
 })
 
 app.use(express.urlencoded({extended:true}));
+app.use(methodOverride('_method'))
 
 
 app.set('view engine', 'jsx');
@@ -59,8 +61,12 @@ app.post('/pokemon', (req,res)=>{
        res.redirect('/pokemon')//send user back to index page
        
 })
-// console.log(Pokemon)
-// console.log(req.body)
+})
+
+app.delete('/fruits/:id', (req, res)=>{
+    Pokemon.findByIdAndRemove(req.params.id, (err, data)=>{
+        res.redirect('/pokemon') // redirect back to pokemon index
+    })
 })
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });

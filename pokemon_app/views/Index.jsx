@@ -6,7 +6,6 @@ class Index extends React.Component {
         const style = {
             color: '#023e8a',
             //backgroundColor: '#ccff33',
-            margin: ' ',
             textTransform: 'capitalize'
         };     
         return (
@@ -17,7 +16,7 @@ class Index extends React.Component {
        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
        <title>Pokèmon</title>
       </head>
-      <body style={{backgroundImage: 'url(https://wallpaper.dog/large/10988048.jpg)'}}>
+      <body style={{padding:'35px'}} style={{backgroundImage: 'url(https://wallpaper.dog/large/10988048.jpg)'}}>
           <div>
               <h1 style={{color: '#ffd100'}}>See All The Pokemon!</h1>
              
@@ -25,12 +24,15 @@ class Index extends React.Component {
                     <a href="/pokemon/new" style={{color: 'white'}}>Create a new Pokemon!</a>
               </nav>
               <ul>
-                    {pokemon.map((poke, i) => {
+                    {this.props.pokemon.map((poke, i) => {
                         return (
-                            <li>
+                            <li key={li}>
                             <a href={`/pokemon/${poke.id}`} style={{color: 'white'}}>
                                 {poke.name}
                             </a>
+                            <form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+                                <input type="submit" value="DELETE"/>
+                            </form>
                             </li>
                         );
                     })}
