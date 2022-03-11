@@ -17,13 +17,21 @@ class Show extends React.Component {
        <title>Pokèmon</title>
       </head>
       <body style={{backgroundColor: '#fe5f55'}}>
-     
+      <div>
           <h1 style={{color: '#ffd100'}}>Gotta Catch 'Em All!</h1>
           <br/>
-          <h2 style={{color: "#0077b6"}} style={{color: 'white'}}> {pokemon.name} </h2>
-          <div style={style}>
-              <img src={pokemon.img + '.jpg'} ></img>
+          <h2 style={{color: "#0077b6"}} style={{color: 'white'}}> 
+            {pokemon.name.charAt(0).toUpperCase(0) + pokemon.name.slice(1)}
+          </h2>
+              <img src={`${pokemon.img}.jpg`} style={{borderRadius: '25px'}} style={{padding: ''}}></img>
               <br></br>
+              {/* <form action={`/pokemon/${pokemon._id}/edit?_method=EDIT`} method="GET">
+                     <input type="submit" value="EDIT"/>
+              </form> */}
+              <br/>
+              {/* <form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+              <input type="submit" value="DELETE"/>
+              </form> */}
               <a href='/pokemon' style={{color: 'white'}}>Back  To  PokèDex</a>
           </div>
       

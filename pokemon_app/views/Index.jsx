@@ -2,13 +2,14 @@ const React = require('react');
 
 class Index extends React.Component {
     render() {
-        const { pokemon } = this.props;
-        const style = {
-            color: '#023e8a',
+        const { pokemon }  = this.props;
+        //const poke = poke.name.charAt(0).toUpperCase() + poke.name.slice(1)
+            //color: '#023e8a',
             //backgroundColor: '#ccff33',
-            textTransform: 'capitalize'
-        };     
+            //textTransform: 'capitalize'
+        
         return (
+            
     <html lang="en">
       <head>
        <meta charset="UTF-8" />
@@ -16,27 +17,35 @@ class Index extends React.Component {
        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
        <title>Pokèmon</title>
       </head>
-      <body style={{padding:'35px'}} style={{backgroundImage: 'url(https://wallpaper.dog/large/10988048.jpg)'}}>
+      <body  style={{backgroundImage: 'url(https://wallpaper.dog/large/10988048.jpg)'}}>
           <div>
+          <link rel="stylesheet" href="/css/app.css"/> 
               <h1 style={{color: '#ffd100'}}>See All The Pokemon!</h1>
              
               <nav>
                     <a href="/pokemon/new" style={{color: 'white'}}>Create a new Pokemon!</a>
               </nav>
               <ul>
-                    {this.props.pokemon.map((poke, i) => {
+                    {pokemon.map((poke, i) => {
                         return (
-                            <li key={i}>
-                            <a href={`/pokemon/${poke.id}/Edit`} style={{color: 'white'}}>
-                                {poke.name} <br/> Edit This Pokemon
+                            <li key={poke._id}>
+                                <a href={`/pokemon/${poke.id}`}>
+                                <h2 style={{color: '#cfbaf0'}}>{poke.name} </h2>
+                                </a>
+                            <a href={`/pokemon/${poke.id}/edit`} style={{color: 'white'}}>
+                                
+                                Edit This Pokemon
                             </a>
                             <form action={`/pokemon/${poke._id}?_method=DELETE`} method="POST">
-                                <input type="submit" value="DELETE"/>
+                             <input type="submit" value="DELETE"/>
                             </form>
+                            <br/>
+                            
                             </li>
                         );
                     })}
                 </ul>
+
             </div>
             </body>
     </html>

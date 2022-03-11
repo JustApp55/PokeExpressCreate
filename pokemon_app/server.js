@@ -36,9 +36,9 @@ app.set('view engine', 'jsx');
     })
 });
 
-// app.get('/', (req,res)=>{
-//     res.render('Welcome to Pokemon App')
-// })
+app.get('/', (req,res)=>{
+    res.redirect('/pokemon')
+})
 
 app.get('/pokemon', (req, res)=>{
     Pokemon.find({}, (err, allPokemon)=> {
@@ -69,20 +69,27 @@ app.delete('/pokemon/:id', (req, res)=>{
     })
 })
 
+app.put('/pokemon/:id', (req, res)=>{
+    Pokemon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+        res.redirect('/pokemon');
+})
+})
+
 app.get('/pokemon/:id/edit', (req, res)=>{
     Pokemon.findById(req.params.id, (err, foundPokemon)=>{
         if(!err){
             res.render(
-                'Edit',
-                {
-                    pokemon:foundPokemon //pass in found pokemon
-                }
+              'Edit',
+              {
+                pokemon: foundPokemon   //pass in found pokemon
+              }
             )
-        } else {
-            res.send({ msg: err.message})
-        }
-    })
-})
+          } else {
+            res.send({ msg: err.message })
+          }
+        })
+      })
+
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', ()=> {
