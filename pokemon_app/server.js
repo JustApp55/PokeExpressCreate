@@ -63,9 +63,24 @@ app.post('/pokemon', (req,res)=>{
 })
 })
 
-app.delete('/fruits/:id', (req, res)=>{
+app.delete('/pokemon/:id', (req, res)=>{
     Pokemon.findByIdAndRemove(req.params.id, (err, data)=>{
         res.redirect('/pokemon') // redirect back to pokemon index
+    })
+})
+
+app.get('/pokemon/:id/edit', (req, res)=>{
+    Pokemon.findById(req.params.id, (err, foundPokemon)=>{
+        if(!err){
+            res.render(
+                'Edit',
+                {
+                    pokemon:foundPokemon //pass in found pokemon
+                }
+            )
+        } else {
+            res.send({ msg: err.message})
+        }
     })
 })
 

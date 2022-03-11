@@ -26,11 +26,11 @@ class Index extends React.Component {
               <ul>
                     {this.props.pokemon.map((poke, i) => {
                         return (
-                            <li key={li}>
-                            <a href={`/pokemon/${poke.id}`} style={{color: 'white'}}>
-                                {poke.name}
+                            <li key={i}>
+                            <a href={`/pokemon/${poke.id}/Edit`} style={{color: 'white'}}>
+                                {poke.name} <br/> Edit This Pokemon
                             </a>
-                            <form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+                            <form action={`/pokemon/${poke._id}?_method=DELETE`} method="POST">
                                 <input type="submit" value="DELETE"/>
                             </form>
                             </li>
