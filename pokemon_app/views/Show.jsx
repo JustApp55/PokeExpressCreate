@@ -10,6 +10,7 @@ class Show extends React.Component {
       };
       return (
     <html lang="en">
+      <link rel="stylesheet" href="/css/app.css"/>
       <head>
        <meta charset="UTF-8" />
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,13 +26,7 @@ class Show extends React.Component {
           </h2>
               <img src={`${pokemon.img}.jpg`} style={{borderRadius: '25px'}} style={{padding: ''}}></img>
               <br></br>
-              {/* <form action={`/pokemon/${pokemon._id}/edit?_method=EDIT`} method="GET">
-                     <input type="submit" value="EDIT"/>
-              </form> */}
-              <br/>
-              {/* <form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
-              <input type="submit" value="DELETE"/>
-              </form> */}
+             
               <a href='/pokemon' style={{color: 'white'}}>Back  To  PokèDex</a>
           </div>
       
@@ -41,3 +36,28 @@ class Show extends React.Component {
 };
 
 module.exports = Show;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {/* <form action={`/pokemon/${pokemon._id}/edit?_method=EDIT`} method="GET">
+                     <input type="submit" value="EDIT"/>
+              </form> */}
+              <br/>
+              {/* <form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+              <input type="submit" value="DELETE"/>
+              </form> */}

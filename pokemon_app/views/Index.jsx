@@ -18,6 +18,7 @@ class Index extends React.Component {
        <title>Pokèmon</title>
       </head>
       <body  style={{backgroundImage: 'url(https://wallpaper.dog/large/10988048.jpg)'}}>
+          
           <div>
           <link rel="stylesheet" href="/css/app.css"/> 
               <h1 style={{color: '#ffd100'}}>See All The Pokemon!</h1>
@@ -28,15 +29,17 @@ class Index extends React.Component {
               <ul>
                     {pokemon.map((poke, i) => {
                         return (
-                            <li key={poke._id}>
+                            <li key={poke._id} style={{color: '#cfbaf0'}}>
                                 <a href={`/pokemon/${poke.id}`}>
                                 <h2 style={{color: '#cfbaf0'}}>{poke.name} </h2>
                                 </a>
                             <a href={`/pokemon/${poke.id}/edit`} style={{color: 'white'}}>
                                 
                                 Edit This Pokemon
-                            </a>
+                            </a> 
+                            
                             <form action={`/pokemon/${poke._id}?_method=DELETE`} method="POST">
+                                <br/>
                              <input type="submit" value="DELETE"/>
                             </form>
                             <br/>

@@ -16,6 +16,7 @@ app.use((req, res, next) =>{
 
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'))
+app.use(express.static('public')); 
 
 
 app.set('view engine', 'jsx');
@@ -36,9 +37,9 @@ app.set('view engine', 'jsx');
     })
 });
 
-app.get('/', (req,res)=>{
-    res.redirect('/pokemon')
-})
+// app.get('/', (req,res)=>{
+//     res.redirect('/pokemon')
+// })
 
 app.get('/pokemon', (req, res)=>{
     Pokemon.find({}, (err, allPokemon)=> {
@@ -49,32 +50,28 @@ app.get('/pokemon', (req, res)=>{
 app.get('/pokemon/new', (req, res)=>{
     res.render('New')
 })
-
+    //form Post
+app.post('/pokemon', (req,res)=>{
+    Pokemon.create(req.body, (err, createdPokemon)=>{
+       res.redirect('/pokemon')//send user back to index page   
+})
+})
+        //Show route
 app.get('/pokemon/:id', (req, res)=>{
     Pokemon.findById(req.params.id, (err, foundPokemon)=>{
         res.render('Show', {pokemon:foundPokemon})
     })
 })
 
-app.post('/pokemon', (req,res)=>{
-    Pokemon.create(req.body, (err, createdPokemon)=>{
-       res.redirect('/pokemon')//send user back to index page
-       
-})
-})
 
+    //Delete route
 app.delete('/pokemon/:id', (req, res)=>{
     Pokemon.findByIdAndRemove(req.params.id, (err, data)=>{
         res.redirect('/pokemon') // redirect back to pokemon index
     })
 })
 
-app.put('/pokemon/:id', (req, res)=>{
-    Pokemon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-        res.redirect('/pokemon');
-})
-})
-
+    //Edit route
 app.get('/pokemon/:id/edit', (req, res)=>{
     Pokemon.findById(req.params.id, (err, foundPokemon)=>{
         if(!err){
@@ -89,6 +86,12 @@ app.get('/pokemon/:id/edit', (req, res)=>{
           }
         })
       })
+
+app.put('/pokemon/:id', (req, res)=>{
+        Pokemon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+            res.redirect('/pokemon');
+})
+})
 
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
