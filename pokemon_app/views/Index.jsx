@@ -19,13 +19,14 @@ class Index extends React.Component {
       </head>
       <body  style={{backgroundImage: 'url(https://wallpaper.dog/large/10988048.jpg)'}}>
           
-          <div>
+          <div style={{padding: '10px 50px 0'}}>
           <link rel="stylesheet" href="/css/app.css"/> 
               <h1 style={{color: '#ffd100'}}>See All The Pokemon!</h1>
-             
-              <nav>
-                    <a href="/pokemon/new" style={{color: 'white'}}>Create a new Pokemon!</a>
+             <br/>
+              <nav style={{fontSize: 'large'}}>
+                    <a href="/pokemon/new" style={{color: 'white'}} >Create a new Pokemon!</a>
               </nav>
+              <br/><br/>
               <ul>
                     {pokemon.map((poke, i) => {
                         return (
