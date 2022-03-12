@@ -17,7 +17,7 @@ class Show extends React.Component {
        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
        <title>Pokèmon</title>
       </head>
-      <body style={{backgroundImage: 'url(https://wallup.net/wp-content/uploads/2017/11/17/240678-Pokemon-Pixelmon.jpg)'}}>
+      <body style={{backgroundImage: 'url(https://i.pinimg.com/originals/b9/dc/aa/b9dcaa30286af080f80da6d775d63ed2.jpg)'}}>
       <div>
           <h1 style={{color: '#ffd100'}}>Gotta Catch 'Em All!</h1>
           <br/>
