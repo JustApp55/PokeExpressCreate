@@ -17,9 +17,9 @@ class Index extends React.Component {
        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
        <title>Pokèmon</title>
       </head>
-      <body  style={{backgroundImage: 'url(https://wallpaper.dog/large/10988048.jpg)'}}>
+      <body  style={{backgroundImage: 'url(https://wallpaper.dog/large/10988048.jpg)'}} >
           
-          <div style={{padding: '10px 50px 0'}}>
+          <div style={{textTransform: 'capitalize'}}>
           <link rel="stylesheet" href="/css/app.css"/> 
               <h1 style={{color: '#ffd100'}}>See All The Pokemon!</h1>
              <br/>
@@ -27,7 +27,7 @@ class Index extends React.Component {
                     <a href="/pokemon/new" style={{color: 'white'}} >Create a new Pokemon!</a>
               </nav>
               <br/><br/>
-              <ul>
+              <ul >
                     {pokemon.map((poke, i) => {
                         return (
                             <li key={poke._id} style={{color: '#cfbaf0'}}>
