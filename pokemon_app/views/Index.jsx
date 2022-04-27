@@ -17,7 +17,7 @@ class Index extends React.Component {
        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
        <title>Pokèmon</title>
       </head>
-      <body  style={{backgroundImage: 'url(https://wallpaper.dog/large/10988048.jpg)'}} >
+      <body   >
           
           <div style={{textTransform: 'capitalize'}}>
           <link rel="stylesheet" href="/css/app.css"/> 

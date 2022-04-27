@@ -1,3 +1,11 @@
 div.Index {
     color: white;
 }
+
+body {
+    background: url(https://wallpaper.dog/large/10988048.jpg) no-repeat center center;
+    background-size: cover;
+
+}
+
+/* style={{backgroundImage: 'url(https://wallpaper.dog/large/10988048.jpg)' } } */
